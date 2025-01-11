@@ -1,14 +1,20 @@
 import React from "react";
-import Reviews from "./MYSolution/Reviews";
+import Reviews from "./component/Reviews";
+
+
 
 function App() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h2 className="mb-4">OUR REViews</h2>
-        <Reviews />
-      </div>
-    </>
+    <main>
+      <section className="container">
+        <div className="title">
+          <h4>Our Reviews</h4>
+          <div className="underline"></div>
+        </div>
+        <Reviews/>
+
+      </section>
+    </main>
   );
 }
 
