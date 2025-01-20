@@ -1,16 +1,39 @@
-import Reviews from "./component/Reviews";
+import React, { useState } from "react";
+import { FaArrowLeft, FaArrowRight, FaQuoteLeft } from "react-icons/fa";
+import data from "./data";
 
 function App() {
+  const [people, setPeople] = useState(data);
+  const [index, setIndex] = useState(0);
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50">
-      <section className="container text-center">
-        <div className="mb-8">
-          <h4 className="text-2xl font-bold">Our Reviews</h4>
-          <div className="mt-2 w-16 h-1 bg-blue-500 mx-auto"></div>
-        </div>
-        <Reviews />
-      </section>
-    </main>
+    <section className="section">
+      <div className="title">
+        <h2>
+          <span>/</span>Reviews
+        </h2>
+      </div>
+      <div className="section-center">
+        {people.map((person, personIndex) => {
+          const { id, image, name, title, quote } = person;
+          // more stuff coming up
+
+          return (
+            <article key={id}>
+              <img src={image} alt={name} className="person-img" />
+              <h4>{name}</h4>
+              <p className="title">{title}</p>
+              <p className="text">{quote}</p>
+            </article>
+          );
+        })}
+        <button className="prev">
+          <FaArrowLeft />
+        </button>
+        <button className="next">
+          <FaArrowRight />
+        </button>
+      </div>
+    </section>
   );
 }
 
